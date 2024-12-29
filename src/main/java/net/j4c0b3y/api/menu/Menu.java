@@ -146,15 +146,6 @@ public abstract class Menu {
     public void onClose() { }
 
     /**
-     * Called when any button is clicked,
-     * or when the outside of the inventory is
-     * clicked, in which case the button is null.
-     *
-     * @param click The button click.
-     */
-    public void onClick(ButtonClick click) { }
-
-    /**
      * Opens the menu, closing any existing menus if they are open.
      * The setup method is called on the first invocation of this method.
      */
@@ -264,15 +255,9 @@ public abstract class Menu {
     public void click(InventoryClickEvent event) {
         handler.schedule(() -> {
             Button button = buttons.get(event.getSlot());
-            ButtonClick click = new ButtonClick(event, button, this);
+            if (button == null) return;
 
-            onClick(click);
-
-            if (button == null || click.isIgnored()) {
-                return;
-            }
-
-            button.onClick(click);
+            button.onClick(new ButtonClick(event, button, this));
         }, async);
     }
 
