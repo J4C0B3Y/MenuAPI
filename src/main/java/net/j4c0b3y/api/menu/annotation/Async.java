@@ -6,8 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Marks the menu as asynchronous,
- * this is overridden by Menu#setAsync.
+ * Marks the menu as asynchronous.
  *
  * @author J4C0B3Y
  * @version MenuAPI
