@@ -45,15 +45,9 @@ public class ButtonClick {
 
     /**
      * The click slot, this is -1 if the
-     *  click was outside the inventory.
+     * click was outside the inventory.
      */
     private final int slot;
-
-    /**
-     * If the click should be ignored,
-     * and not send to the button's handler.
-     */
-    @Setter private boolean ignored;
 
     /**
      * Creates a new button click, extracting
@@ -70,5 +64,12 @@ public class ButtonClick {
         this.player = menu.getPlayer();
         this.type = event.getClick();
         this.slot = event.getSlot();
+    }
+
+    /**
+     * Allows pickup / movement of the button item.
+     */
+    public void allow() {
+        event.setCancelled(false);
     }
 }
