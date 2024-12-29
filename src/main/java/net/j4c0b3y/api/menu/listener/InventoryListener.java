@@ -37,7 +37,7 @@ public class InventoryListener implements Listener {
             return;
         }
 
-        handler.ifOpen((Player) event.getWhoClicked(), (menu) -> {
+        handler.ifOpen((Player) event.getWhoClicked(), menu -> {
             event.setCancelled(true);
             menu.click(event);
         });
@@ -55,7 +55,9 @@ public class InventoryListener implements Listener {
             return;
         }
 
-        handler.ifOpen((Player) event.getPlayer(), (menu -> menu.close(false)));
+        handler.ifOpen((Player) event.getPlayer(), menu ->
+            menu.close(false)
+        );
     }
 
     /**

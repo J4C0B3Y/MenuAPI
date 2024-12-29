@@ -64,9 +64,10 @@ public class MenuHandler {
      */
     public MenuHandler(JavaPlugin plugin) {
         instance = this;
-        this.plugin = plugin;
 
-        autoUpdateTask = new AutoUpdateTask(this);
+        this.plugin = plugin;
+        this.autoUpdateTask = new AutoUpdateTask(this);
+
         Bukkit.getScheduler().runTaskTimer(plugin, autoUpdateTask, 0, 1);
         Bukkit.getPluginManager().registerEvents(new InventoryListener(this), plugin);
     }
