@@ -1,5 +1,7 @@
 package net.j4c0b3y.api.menu;
 
+import lombok.Getter;
+import lombok.Setter;
 import net.j4c0b3y.api.menu.annotation.Async;
 import net.j4c0b3y.api.menu.button.Button;
 import net.j4c0b3y.api.menu.button.ButtonClick;
@@ -7,8 +9,6 @@ import net.j4c0b3y.api.menu.layer.impl.BackgroundLayer;
 import net.j4c0b3y.api.menu.layer.impl.ForegroundLayer;
 import net.j4c0b3y.api.menu.template.Template;
 import net.j4c0b3y.api.menu.utils.Position;
-import lombok.Getter;
-import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;

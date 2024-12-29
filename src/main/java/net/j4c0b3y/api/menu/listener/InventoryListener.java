@@ -1,8 +1,8 @@
 package net.j4c0b3y.api.menu.listener;
 
+import lombok.RequiredArgsConstructor;
 import net.j4c0b3y.api.menu.Menu;
 import net.j4c0b3y.api.menu.MenuHandler;
-import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

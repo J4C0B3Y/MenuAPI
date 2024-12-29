@@ -1,9 +1,8 @@
 package net.j4c0b3y.api.menu.button;
 
-import net.j4c0b3y.api.menu.Menu;
 import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.Setter;
+import net.j4c0b3y.api.menu.Menu;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;

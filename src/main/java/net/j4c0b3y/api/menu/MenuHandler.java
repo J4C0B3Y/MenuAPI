@@ -1,10 +1,10 @@
 package net.j4c0b3y.api.menu;
 
 
-import net.j4c0b3y.api.menu.listener.InventoryListener;
-import net.j4c0b3y.api.menu.task.AutoUpdateTask;
 import lombok.Getter;
 import lombok.Setter;
+import net.j4c0b3y.api.menu.listener.InventoryListener;
+import net.j4c0b3y.api.menu.task.AutoUpdateTask;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;

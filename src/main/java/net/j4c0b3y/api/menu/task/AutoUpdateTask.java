@@ -1,10 +1,10 @@
 package net.j4c0b3y.api.menu.task;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import net.j4c0b3y.api.menu.Menu;
 import net.j4c0b3y.api.menu.MenuHandler;
 import net.j4c0b3y.api.menu.annotation.AutoUpdate;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
 /**
  * Used to automatically update menus annotated with @AutoUpdate

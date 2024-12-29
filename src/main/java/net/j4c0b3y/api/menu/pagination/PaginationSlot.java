@@ -1,9 +1,9 @@
 package net.j4c0b3y.api.menu.pagination;
 
-import net.j4c0b3y.api.menu.button.Button;
-import net.j4c0b3y.api.menu.button.ButtonClick;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import net.j4c0b3y.api.menu.button.Button;
+import net.j4c0b3y.api.menu.button.ButtonClick;
 import org.bukkit.inventory.ItemStack;
 
 /**

@@ -1,11 +1,11 @@
 package net.j4c0b3y.api.menu.layer;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import net.j4c0b3y.api.menu.Menu;
 import net.j4c0b3y.api.menu.button.Button;
 import net.j4c0b3y.api.menu.pagination.PaginationSlot;
 import net.j4c0b3y.api.menu.utils.Position;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.HashMap;
