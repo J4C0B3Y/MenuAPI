@@ -8,8 +8,7 @@ import net.j4c0b3y.api.menu.pagination.PaginationSlot;
 import net.j4c0b3y.api.menu.utils.Position;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Represents a layer of buttons in a menu with
@@ -283,6 +282,25 @@ public abstract class Layer {
      */
     public void clear() {
         buttons.clear();
+    }
+
+    /**
+     * Finds all buttons of a certain type.
+     *
+     * @param type The button class.
+     * @return The matching buttons.
+     */
+    @SuppressWarnings("unchecked")
+    public <T extends Button> List<T> getButtons(Class<T> type) {
+        List<T> buttons = new ArrayList<>();
+
+        for (Button button : this.buttons.values()) {
+            if (type.isInstance(button)) {
+                buttons.add((T) button);
+            }
+        }
+
+        return buttons;
     }
 
     /**
