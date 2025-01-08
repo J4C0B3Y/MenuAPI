@@ -311,7 +311,7 @@ public class TagsMenu extends PaginatedMenu {
     public List<Button> getEntries() {
         List<Button> buttons = new ArrayList();
         
-        for (Tag tag : plugin.getTagHandler.getTags()) {
+        for (Tag tag : plugin.getTagHandler().getTags()) {
             buttons.add(new TagButton(tag));
         }
         
