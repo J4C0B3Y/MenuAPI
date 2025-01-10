@@ -20,7 +20,7 @@ or by creating an issue and explaining your problem or question.
 
 ## Installation
 
-Prebuilt jars can be found in [releases](https://github.com/VoidedNetwork/MenuAPI/releases).
+Prebuilt jars can be found in [releases](https://github.com/J4C0B3Y/MenuAPI/releases).
 
 > **NOTE:** <br/>
 > Please relocate the library as multiple menu handlers can
