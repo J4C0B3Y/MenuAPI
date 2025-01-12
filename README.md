@@ -23,8 +23,8 @@ or by creating an issue and explaining your problem or question.
 Prebuilt jars can be found in [releases](https://github.com/J4C0B3Y/MenuAPI/releases).
 
 > **NOTE:** <br/>
-> Please relocate the library as multiple menu handlers can
-> cause problems with other plugins that also use the MenuAPI.
+> It is recommended to relocate the library to prevent
+> version mismatches with other plugins that use the api.
 
 ### Maven & Gradle
 
