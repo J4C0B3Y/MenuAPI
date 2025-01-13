@@ -123,16 +123,6 @@ public void onOpen() {
 public void onClose() {
     // Called when the menu is closed.
 }
-
-@Override
-public void onClick(ButtonClick click) {
-    // Called when the menu is clicked, the button will be null if a
-    // slot is clicked with no button or the player clicks outside the
-    // menu, if the outside is clicked then the slot index will be -1.
-    
-    // You can also stop the click from being sent to the button.
-    click.setIgnored(true);
-}
 ```
 
 To make a menu asynchronous you can annotate the class with `@Async`.
