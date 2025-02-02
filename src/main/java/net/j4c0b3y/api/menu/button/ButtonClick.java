@@ -5,7 +5,6 @@ import lombok.Getter;
 import net.j4c0b3y.api.menu.Menu;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.inventory.ItemStack;
 
 /**
  * Stores information about a player clicking a menu.
@@ -59,12 +58,5 @@ public class ButtonClick {
      */
     public int getSlot() {
         return event.getSlot();
-    }
-
-    /**
-     * @return The item in the cursor.
-     */
-    public ItemStack getCursor() {
-        return event.getCursor();
     }
 }
