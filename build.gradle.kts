@@ -11,7 +11,7 @@ object Project {
     const val NAME = "MenuAPI"
     const val GROUP = "net.j4c0b3y"
     const val AUTHOR = "J4C0B3Y"
-    const val VERSION = "1.4.1"
+    const val VERSION = "1.4.2"
 }
 
 repositories {
