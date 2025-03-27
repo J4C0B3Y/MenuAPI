@@ -1,3 +1,4 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import java.nio.charset.StandardCharsets
 
 plugins {
@@ -56,7 +57,11 @@ subprojects {
                 groupId = Project.GROUP
                 version = Project.VERSION
 
-                from(components["java"])
+                artifact(tasks.named<ShadowJar>("shadowJar").get().archiveFile)
+
+                artifact(tasks.named<Jar>("sourcesJar").get().archiveFile) {
+                    classifier = "sources"
+                }
             }
         }
     }
