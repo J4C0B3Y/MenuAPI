@@ -10,6 +10,7 @@ Simple to use, high performance bukkit menu api.
 - Reusable layer templates
 - Auto update annotation
 - Small and lightweight (~22kb)
+- Inbuilt item builder utility
 - Supports spigot 1.8+
 
 ## Support
@@ -36,7 +37,7 @@ repositories {
 }
 
 dependencies {
-    implementation("net.j4c0b3y:MenuAPI:VERSION")
+    implementation("net.j4c0b3y:MenuAPI-core:VERSION")
 }
 ```
 
@@ -51,7 +52,7 @@ dependencies {
 <dependencies>
     <dependency>
         <groupId>net.j4c0b3y</groupId>
-        <artifactId>MenuAPI</artifactId>
+        <artifactId>MenuAPI-core</artifactId>
         <version>VERSION</version>
     </dependency>
 </dependencies>
@@ -61,8 +62,7 @@ dependencies {
 
 1. Clone this repository and enter its directory.
 2. Run the intellij build configuration by clicking the top right icon.
-3. Alternatively you can run `gradle classes shadow delete copy install`.
-4. The output jar file will be located in the `jars` directory.
+3. Alternatively you can run `gradle build`.
 
 ## Usage
 
@@ -325,6 +325,41 @@ menu.hasNextPage();
 menu.hasPreviousPage();
 
 // More can be found in the pagination menu class.
+```
+
+### Item Builder Utility
+
+The menu api contains a utility class for creating item stacks using a builder. 
+
+Since the builder heavily utilizes XSeries, the library will contain many extra classes resulting in increased size,
+the utility is contained in a separate package called `MenuAPI-extras`, which should be added in your build configuration.
+
+Here is an example of its usage, refer to it's javadocs for more information:
+
+```java
+ItemStack item = new Item(XMaterial.PLAYER_HEAD) // Uses XSeries throughout
+    .setName("&c&lTest") // Set the item's display name.
+    .addLore("&7Test lore") // You can also use setLore.
+    .setAmount(10) // Set the quantity of items in the item stack.
+    .setUnbreakable() // You can optionally put a boolean here.
+    .addEnchantment(XEnchantment.AQUA_AFFINITY, 3) // You can use unsafe levels.
+    .addFlag(XItemFlag.HIDE_ENCHANTS) // Add item flags to the item.
+    .setTexture("J4C0B3Y") // Can be uuid, username, base64, etc.
+    .setData((short) 3) // Set the data / durability of the item.
+    .build(); // Finalize the item, converting it into the item stack.
+```
+
+You can change how the name and lore is translated by setting the translator.
+
+```java
+// Specific to item instance:
+ItemStack item = new Item()
+    .setName("")
+    .setFormatter(Color::translate)
+    .build();
+
+// Set for any future Item instances created.
+Item.setDefaultFormatter(Color::translate);
 ```
 
 ### Want more?
