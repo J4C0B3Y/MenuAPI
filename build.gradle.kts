@@ -4,6 +4,7 @@ plugins {
     java
     `maven-publish`
     id("io.freefair.lombok") version "8.12.1"
+    id("com.gradleup.shadow") version "9.0.0-beta8"
 }
 
 object Project {
@@ -22,6 +23,7 @@ subprojects {
     apply(plugin = "java")
     apply(plugin = "io.freefair.lombok")
     apply(plugin = "maven-publish")
+    apply(plugin = "com.gradleup.shadow")
 
     java {
         sourceCompatibility = JavaVersion.VERSION_1_8

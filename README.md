@@ -62,7 +62,7 @@ dependencies {
 
 1. Clone this repository and enter its directory.
 2. Run the intellij build configuration by clicking the top right icon.
-3. Alternatively you can run `gradle build`.
+3. Alternatively you can run `gradle shadowJar`.
 
 ## Usage
 

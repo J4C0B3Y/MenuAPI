@@ -10,7 +10,7 @@
       </option>
       <option name="taskNames">
         <list>
-          <option value="build" />
+          <option value="shadowJar" />
           <option value="publishToMavenLocal" />
         </list>
       </option>
