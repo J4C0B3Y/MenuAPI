@@ -354,7 +354,7 @@ You can change how the name and lore is translated by setting the translator.
 ```java
 // Specific to item instance:
 ItemStack item = new Item()
-    .setName("")
+    .setName("Some text.")
     .setFormatter(Color::translate)
     .build();
 
