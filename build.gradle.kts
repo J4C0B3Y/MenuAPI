@@ -1,5 +1,6 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import java.nio.charset.StandardCharsets
+import kotlin.io.path.Path
 
 plugins {
     java
@@ -36,6 +37,14 @@ subprojects {
         compileJava {
             options.encoding = StandardCharsets.UTF_8.name()
         }
+
+        register<Copy>("copy") {
+            from(shadowJar)
+            rename("(.*)-all.jar", "${Project.NAME}-${this@subprojects.name}-${Project.VERSION}.jar")
+            into(Path(rootDir.path, "jars"))
+        }
+
+        build { dependsOn(named("copy")) }
     }
 
     publishing {
