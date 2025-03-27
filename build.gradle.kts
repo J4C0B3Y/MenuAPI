@@ -1,77 +1,63 @@
-import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+import java.nio.charset.StandardCharsets
 
 plugins {
-    id("java")
-    id("maven-publish")
-    id("io.freefair.lombok") version "8.10"
-    id("com.gradleup.shadow") version "8.3.0"
+    java
+    `maven-publish`
+    id("io.freefair.lombok") version "8.12.1"
 }
 
 object Project {
     const val NAME = "MenuAPI"
     const val GROUP = "net.j4c0b3y"
-    const val AUTHOR = "J4C0B3Y"
-    const val VERSION = "1.4.3"
+    const val VERSION = "1.5.0"
 }
 
-repositories {
-    mavenCentral()
-    maven("https://repo.codemc.io/repository/nms/")
-}
-
-dependencies {
-    compileOnly("org.spigotmc:spigot:1.8.8-R0.1-SNAPSHOT")
-}
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
-    withSourcesJar()
-}
-
-tasks {
-    register<Copy>("copy") {
-        from(named("shadowJar"))
-        rename("(.*)-all.jar", "${Project.NAME}-${Project.VERSION}.jar")
-        into(file("jars"))
-    }
-
-    register("delete") {
-        file("jars").deleteRecursively()
-    }
-
-    register("install") {
-        dependsOn(named("publishReleasePublicationToMavenLocal"))
-    }
-
-    named<JavaCompile>("compileJava") {
-        options.encoding = "UTF-8"
-    }
-}
-
-publishing {
+allprojects {
     repositories {
-        maven {
-            name = "j4c0b3yPublic"
-            url = uri("https://repo.j4c0b3y.net/public")
-            credentials(PasswordCredentials::class)
-            authentication {
-                create<BasicAuthentication>("basic")
-            }
+        mavenCentral()
+    }
+}
+
+subprojects {
+    apply(plugin = "java")
+    apply(plugin = "io.freefair.lombok")
+    apply(plugin = "maven-publish")
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+        withSourcesJar()
+    }
+
+    tasks {
+        compileJava {
+            options.encoding = StandardCharsets.UTF_8.name()
         }
     }
 
-    publications {
-        create<MavenPublication>("release") {
-            artifactId = Project.NAME
-            groupId = Project.GROUP
-            version = Project.VERSION
+    publishing {
+        repositories {
+            maven("https://repo.j4c0b3y.net/public/") {
+                name = "j4c0b3yPublic"
 
-            artifact(tasks.named<ShadowJar>("shadowJar").get().archiveFile)
+                credentials(PasswordCredentials::class)
 
-            artifact(tasks.named<Jar>("sourcesJar").get().archiveFile) {
-                classifier = "sources"
+                authentication {
+                    create<BasicAuthentication>("basic")
+                }
+            }
+        }
+
+        publications {
+            create<MavenPublication>(name) {
+                artifactId = Project.NAME + "-" + name
+                groupId = Project.GROUP
+                version = Project.VERSION
+
+                from(components["java"])
             }
         }
     }
 }
+
+
