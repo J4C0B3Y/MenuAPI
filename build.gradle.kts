@@ -12,7 +12,7 @@ plugins {
 object Project {
     const val NAME = "MenuAPI"
     const val GROUP = "net.j4c0b3y"
-    const val VERSION = "1.5.0"
+    const val VERSION = "1.5.1"
 }
 
 allprojects {
