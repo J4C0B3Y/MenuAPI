@@ -5,9 +5,11 @@ import com.cryptomorin.xseries.XItemFlag;
 import com.cryptomorin.xseries.XMaterial;
 import com.cryptomorin.xseries.profiles.builder.XSkull;
 import com.cryptomorin.xseries.profiles.objects.Profileable;
+import lombok.AccessLevel;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
@@ -41,12 +43,12 @@ public class Item implements Cloneable {
     /**
      * The underlying item stack associated with the item instance.
      */
-    private ItemStack item;
+    private @Setter(AccessLevel.NONE) ItemStack item;
 
     /**
      * The underlying item meta associated with the item instance.
      */
-    private ItemMeta meta;
+    private @Setter(AccessLevel.NONE) ItemMeta meta;
 
     /**
      * The name of the item.
