@@ -103,7 +103,7 @@ public abstract class PaginatedMenu extends Menu {
     /**
      * Increments the page then updates the menu.
      */
-    public void next() {
+    public void nextPage() {
         page++;
         update();
     }
@@ -111,7 +111,7 @@ public abstract class PaginatedMenu extends Menu {
     /**
      * Decrements the page then updates the menu.
      */
-    public void previous() {
+    public void previousPage() {
         page--;
         update();
     }
@@ -121,7 +121,7 @@ public abstract class PaginatedMenu extends Menu {
      *
      * @param number The page number.
      */
-    public void page(int number) {
+    public void setPage(int number) {
         page = number;
         update();
     }
