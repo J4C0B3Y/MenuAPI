@@ -243,9 +243,9 @@ public class Item implements Cloneable {
         return modifyMeta(meta -> {
             if (!(meta instanceof SkullMeta)) return;
 
-            XSkull.of(meta)
+            this.meta = XSkull.of(meta)
                 .profile(Profileable.detect(texture))
-                .applyAsync();
+                .apply();
         });
     }
 
@@ -257,6 +257,16 @@ public class Item implements Cloneable {
      */
     public Item setTexture(UUID uniqueId) {
         return setTexture(uniqueId.toString());
+    }
+
+    /**
+     * Sets the skull texture of the item using XSkull.
+     *
+     * @param player The player.
+     * @return The item instance.
+     */
+    public Item setTexture(Player player) {
+        return setTexture(player.getUniqueId());
     }
 
     /**
