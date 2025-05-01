@@ -254,9 +254,7 @@ public abstract class Menu {
      */
     public void click(InventoryClickEvent event) {
         handler.schedule(() -> {
-            if (!inventory.equals(event.getClickedInventory())) return;
-
-            Button button = buttons.get(event.getSlot());
+            Button button = buttons.get(event.getRawSlot());
             if (button == null) return;
 
             button.onClick(new ButtonClick(event, button, this));
