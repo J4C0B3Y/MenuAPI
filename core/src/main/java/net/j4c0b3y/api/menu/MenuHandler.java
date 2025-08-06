@@ -5,8 +5,10 @@ import lombok.Getter;
 import lombok.Setter;
 import net.j4c0b3y.api.menu.listener.InventoryListener;
 import net.j4c0b3y.api.menu.task.AutoUpdateTask;
+import net.j4c0b3y.api.menu.utils.TriFunction;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Map;
@@ -55,6 +57,12 @@ public class MenuHandler {
      * method is called and there is no previous menu.
      */
     @Setter private boolean closeOnBack = false;
+
+    /**
+     * The method to use when creating internal menu inventories.
+     */
+    @Setter private TriFunction<Player, Integer, String, Inventory> inventoryCreator =
+        Bukkit::createInventory;
 
     /**
      * Creates a new menu handler, starting the autoupdating

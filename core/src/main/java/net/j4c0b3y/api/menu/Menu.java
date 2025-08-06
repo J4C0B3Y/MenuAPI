@@ -9,7 +9,6 @@ import net.j4c0b3y.api.menu.layer.impl.BackgroundLayer;
 import net.j4c0b3y.api.menu.layer.impl.ForegroundLayer;
 import net.j4c0b3y.api.menu.template.Template;
 import net.j4c0b3y.api.menu.utils.Position;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
@@ -111,7 +110,7 @@ public abstract class Menu {
             throw new IllegalStateException("No menu handler instance found.");
         }
 
-        this.inventory = Bukkit.createInventory(player, getTotalSlots(), this.title);
+        this.inventory = handler.getInventoryCreator().apply(player, getTotalSlots(), this.title);
         this.async = getClass().isAnnotationPresent(Async.class);
     }
 
